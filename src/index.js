@@ -1,7 +1,15 @@
-import crypto from 'crypto';
+import DDB from './ddb';
+import clearByGSI from './clearByGSI';
+import clearByScan from './clearByScan';
+import createTable from './createTable';
+import deleteItem from './delete';
+import deleteBulk from './deleteBulk';
 
-const myRandom = () => {
-  return crypto.randomBytes(16).toString('hex');
+module.exports = {
+  DDB,
+  clearByGSI,
+  clearByScan,
+  createTable,
+  deleteItem,
+  deleteBulk,
 };
-
-export default myRandom;

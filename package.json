@@ -1,5 +1,5 @@
 {
-  "name": "dynamodb",
+  "name": "@kdcsoftware/dynamodb",
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
@@ -40,7 +40,8 @@
     "pretty-quick": "^2.0.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.6"
+    "@babel/runtime": "^7.9.6",
+    "aws-sdk": "^2.677.0"
   },
   "targets": {
     "main": {
