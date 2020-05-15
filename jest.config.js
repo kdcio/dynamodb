@@ -1,4 +1,6 @@
 module.exports = {
+  globalSetup: './tests/jest.setup.js',
+  globalTeardown: './tests/jest.teardown.js',
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/', '/tests/__helpers'],
   collectCoverage: true,

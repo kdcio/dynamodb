@@ -1,14 +1,15 @@
 import DDB from './ddb';
 import deleteBulk from './deleteBulk';
 
-// to delete, query via gsi and delete one by one
-// it's since it's test. do not do this in production
-const clearByGSI = async (key) => {
+// To clear, query via gsi and delete one by one
+// Do not do this in production
+const clearByGSI = async ({ fieldName, fieldValue, indexName }) => {
   const params = {
-    IndexName: 'GS1',
-    KeyConditionExpression: 'gs1pk = :pk',
+    IndexName: indexName,
+    KeyConditionExpression: '#pk = :pk',
+    ExpressionAttributeNames: { '#pk': fieldName },
     ExpressionAttributeValues: {
-      ':pk': key,
+      ':pk': fieldValue,
     },
   };
 
