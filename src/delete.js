@@ -1,4 +1,4 @@
-const DDB = require('./ddb');
+import DDB from './ddb';
 
 const deleteItem = async (item) => {
   const params = {
@@ -11,4 +11,4 @@ const deleteItem = async (item) => {
   await DDB('delete', params);
 };
 
-module.exports = deleteItem;
+export default deleteItem;

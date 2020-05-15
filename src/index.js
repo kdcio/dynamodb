@@ -5,7 +5,7 @@ import createTable from './createTable';
 import deleteItem from './delete';
 import deleteBulk from './deleteBulk';
 
-module.exports = {
+export default {
   DDB,
   clearByGSI,
   clearByScan,

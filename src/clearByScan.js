@@ -1,5 +1,5 @@
-const DDB = require('./ddb');
-const deleteBulk = require('./deleteBulk');
+import DDB from './ddb';
+import deleteBulk from './deleteBulk';
 
 // to delete, scan and delete one by one
 // it's ok since it's test. do not do this in production
@@ -15,4 +15,4 @@ const clearByScan = async (key, value) => {
   });
 };
 
-module.exports = clearByScan;
+export default clearByScan;

@@ -1,4 +1,4 @@
-const deleteItem = require('./delete');
+import deleteItem from './delete';
 
 const deleteBulk = (items) => {
   const promises = [];
@@ -9,4 +9,4 @@ const deleteBulk = (items) => {
   return Promise.all(promises);
 };
 
-module.exports = deleteBulk;
+export default deleteBulk;

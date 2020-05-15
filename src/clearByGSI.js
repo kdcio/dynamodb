@@ -1,5 +1,5 @@
-const DDB = require('./ddb');
-const deleteBulk = require('./deleteBulk');
+import DDB from './ddb';
+import deleteBulk from './deleteBulk';
 
 // to delete, query via gsi and delete one by one
 // it's since it's test. do not do this in production
@@ -17,4 +17,4 @@ const clearByGSI = async (key) => {
   });
 };
 
-module.exports = clearByGSI;
+export default clearByGSI;
