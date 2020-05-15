@@ -10,7 +10,7 @@ AWS.config.update(awsConfigs);
 const client = new AWS.DynamoDB.DocumentClient();
 const TableName = DDB_TABLE;
 
-const DDB = async (action, params) => {
+const DDB = (action, params) => {
   let actualParams = { TableName, ...params };
   if (action === 'transactWrite') {
     actualParams = { TransactItems: [] };
