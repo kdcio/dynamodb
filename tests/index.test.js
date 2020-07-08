@@ -3,6 +3,8 @@ import schema from './fixtures/schema.json';
 
 const { log } = console;
 
+jest.setTimeout(10000);
+
 describe('ddb', () => {
   it('should create table', async () => {
     const { createTable } = ddb;
