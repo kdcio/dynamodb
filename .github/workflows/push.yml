@@ -11,9 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: 'fake'
+          aws-secret-access-key: 'fake'
+          aws-region: us-east-2
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12.x'
       - run: npm ci
       - run: npm run lint
       - run: npm run coverage
