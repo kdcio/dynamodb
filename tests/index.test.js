@@ -101,4 +101,15 @@ describe('ddb', () => {
       log(error);
     }
   });
+
+  it('should delete table', async () => {
+    const { deleteTable } = ddb;
+    expect.assertions(0);
+    try {
+      await deleteTable();
+    } catch (error) {
+      log(error);
+      expect(error).toBeUndefined();
+    }
+  });
 });
