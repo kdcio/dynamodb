@@ -1,13 +1,12 @@
-import AWS from 'aws-sdk';
+import DynamoDB from 'aws-sdk/clients/dynamodb';
+import AWS from 'aws-sdk/global';
 
 const awsConfigs = {};
 const { DDB_REGION, DDB_ENDPOINT, DDB_TABLE } = process.env;
 if (DDB_REGION) awsConfigs.region = DDB_REGION;
-if (DDB_ENDPOINT) awsConfigs.endpoint = DDB_ENDPOINT;
+if (DDB_ENDPOINT) awsConfigs.endpoint = new AWS.Endpoint(DDB_ENDPOINT);
 
-AWS.config.update(awsConfigs);
-
-const client = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDB.DocumentClient(awsConfigs);
 const TableName = DDB_TABLE;
 
 const DDB = (action, params) => {
