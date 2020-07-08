@@ -1,15 +1,15 @@
 import DynamoDB from 'aws-sdk/clients/dynamodb';
 import AWS from 'aws-sdk/global';
 
-const awsConfigs = {};
-const { DDB_REGION, DDB_ENDPOINT, DDB_TABLE } = process.env;
-if (DDB_REGION) awsConfigs.region = DDB_REGION;
-if (DDB_ENDPOINT) awsConfigs.endpoint = new AWS.Endpoint(DDB_ENDPOINT);
-
-const client = new DynamoDB.DocumentClient(awsConfigs);
-const TableName = DDB_TABLE;
-
 const DDB = (action, params) => {
+  const awsConfigs = {};
+  const { DDB_REGION, DDB_ENDPOINT, DDB_TABLE } = process.env;
+  if (DDB_REGION) awsConfigs.region = DDB_REGION;
+  if (DDB_ENDPOINT) awsConfigs.endpoint = new AWS.Endpoint(DDB_ENDPOINT);
+
+  const client = new DynamoDB.DocumentClient(awsConfigs);
+  const TableName = DDB_TABLE;
+
   let actualParams = { TableName, ...params };
   if (action === 'transactWrite') {
     actualParams = { TransactItems: [] };
